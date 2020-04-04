@@ -27,9 +27,14 @@ class Mpdemo01ApplicationTests {
     @Test
     public void addUser(){
         User user = new User();
-        user.setName("Kangkang");
-        user.setAge(30);
-        user.setEmail("kk@atguigu.com");
+        user.setName("Tom");
+        user.setAge(18);
+        user.setEmail("tom@atguigu.com");
+
+        //手动设置时间值的方式
+//        user.setCreateTime(new Date());
+//        user.setUpdateTime(new Date());
+
         int rows = userMapper.insert(user);
         System.out.println(rows);//输出影响的行数
     }
@@ -40,6 +45,10 @@ class Mpdemo01ApplicationTests {
         User user = new User();
         user.setId(2L);
         user.setAge(30);
+
+        //手动设置时间值的方式
+//        user.setUpdateTime(new Date());
+
         int rows = userMapper.updateById(user);
         System.out.println(rows);
     }
