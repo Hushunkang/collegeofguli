@@ -2,6 +2,7 @@ package com.atguigu.mpdemo01;
 
 import com.atguigu.mpdemo01.entity.User;
 import com.atguigu.mpdemo01.mapper.UserMapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,5 +123,41 @@ class Mpdemo01ApplicationTests {
     //测试逻辑删除后的查询
     //如果使用spring boot配置了mybatis plus逻辑删除插件，mp底层（应该是拦截器）
     //最终拼接查询sql的时候会多带上一个“表示未删除的”查询条件
+
+    //复杂查询操作
+    @Test
+    public void testSelectQuery() {
+        //创建QueryWrapper对象
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+
+        //通过QueryWrapper设置条件
+        //ge、gt、le、lt
+        //查询age>=30记录
+        //第一个参数设置字段名称，第二个参数设置字段值
+        //wrapper.ge("age",30);
+
+        //eq、ne
+        //wrapper.eq("name","lilei");
+        //wrapper.ne("name","lilei");
+
+        //between
+        //查询年龄20-30
+        // wrapper.between("age",20,30);
+
+        //like
+        //wrapper.like("name","东");
+
+        //orderByDesc
+        // wrapper.orderByDesc("id");
+
+        //last
+        //wrapper.last("limit 1");
+
+        //指定要查询的列
+        wrapper.select("id","name");
+
+        List<User> users = userMapper.selectList(wrapper);
+        System.out.println(users);
+    }
 
 }
