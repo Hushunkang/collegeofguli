@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
  * @author hskBeginner Email：2752962035@qq.com
@@ -34,6 +36,27 @@ public class MybatisPlusConfig {
     @Bean
     public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
+    }
+
+    /**
+     * mybatis plusSQL执行性能分析插件
+     * 开发环境使用，线上不推荐使用。
+     *
+     *
+     *
+     * 三种环境
+     * dev：开发环境
+     * test：测试环境
+     * prod：生产环境
+     */
+    @Bean
+    @Profile({"dev","test"})//设置dev、test环境开启
+    public PerformanceInterceptor performanceInterceptor() {
+        PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+        //maxTime指的是sql最大执行时长
+        performanceInterceptor.setMaxTime(200);//单位ms，sql执行时间超过此处设置的ms数将不执行
+        performanceInterceptor.setFormat(true);
+        return performanceInterceptor;
     }
 
 }
