@@ -27,9 +27,9 @@ class Mpdemo01ApplicationTests {
     @Test
     public void addUser(){
         User user = new User();
-        user.setName("Tom");
+        user.setName("Optimistic");
         user.setAge(18);
-        user.setEmail("tom@atguigu.com");
+        user.setEmail("optimistic@atguigu.com");
 
         //手动设置时间值的方式
 //        user.setCreateTime(new Date());
@@ -51,6 +51,20 @@ class Mpdemo01ApplicationTests {
 
         int rows = userMapper.updateById(user);
         System.out.println(rows);
+    }
+
+    /**
+     * 测试mybatis plus乐观锁插件
+     */
+    @Test
+    public void testOptimisticLocker() {
+        //查询
+        User user = userMapper.selectById(1246381023311282178L);
+        //修改数据
+        user.setName("Helen");
+        user.setEmail("helen@atguigu.com");
+        //执行更新
+        userMapper.updateById(user);
     }
 
 }

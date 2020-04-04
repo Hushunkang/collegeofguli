@@ -2,6 +2,7 @@ package com.atguigu.mpdemo01.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
 import java.util.Date;
@@ -29,5 +30,10 @@ public class User {
     //表中字段update_time，使用驼峰映射的规范
     @TableField(fill=FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    //乐观锁实现原理，表中添加一个版本号字段。。。
+    @Version
+    @TableField(fill=FieldFill.INSERT)
+    private Integer version;
 
 }
