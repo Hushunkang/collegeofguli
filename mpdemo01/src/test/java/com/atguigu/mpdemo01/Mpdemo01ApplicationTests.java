@@ -31,9 +31,9 @@ class Mpdemo01ApplicationTests {
     @Test
     public void addUser(){
         User user = new User();
-        user.setName("Optimistic");
+        user.setName("东方不败");
         user.setAge(18);
-        user.setEmail("optimistic@atguigu.com");
+        user.setEmail("easternotfail@atguigu.com");
 
         //手动设置时间值的方式
 //        user.setCreateTime(new Date());
@@ -58,7 +58,7 @@ class Mpdemo01ApplicationTests {
     }
 
     /**
-     * 测试mybatis plus乐观锁插件
+     * 测试mybatis plus乐观锁插件，乐观锁一般用于解决“丢失更新问题”
      */
     @Test
     public void testOptimisticLocker() {
@@ -68,7 +68,8 @@ class Mpdemo01ApplicationTests {
         user.setName("Helen");
         user.setEmail("helen@atguigu.com");
         //执行更新
-        userMapper.updateById(user);
+        int rows = userMapper.updateById(user);
+        System.out.println(rows);
     }
 
     //多个id批量查询
@@ -110,5 +111,16 @@ class Mpdemo01ApplicationTests {
         System.out.println(page.hasPrevious()); //有上一页吗
         System.out.println(page.hasNext()); //有下一页吗
     }
+
+    //测试逻辑删除
+    @Test
+    public void testLogicDelete(){
+        int rows = userMapper.deleteById(1246401524645609474L);
+        System.out.println(rows);
+    }
+
+    //测试逻辑删除后的查询
+    //如果使用spring boot配置了mybatis plus逻辑删除插件，mp底层（应该是拦截器）
+    //最终拼接查询sql的时候会多带上一个“表示未删除的”查询条件
 
 }

@@ -2,6 +2,7 @@ package com.atguigu.mpdemo01.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
@@ -35,5 +36,8 @@ public class User {
     @Version
     @TableField(fill=FieldFill.INSERT)
     private Integer version;
+
+    @TableLogic//实现逻辑删除的注解
+    private Integer deleted;
 
 }
