@@ -23,4 +23,25 @@ class Mpdemo01ApplicationTests {
         }
     }
 
+    //添加操作
+    @Test
+    public void addUser(){
+        User user = new User();
+        user.setName("Kangkang");
+        user.setAge(30);
+        user.setEmail("kk@atguigu.com");
+        int rows = userMapper.insert(user);
+        System.out.println(rows);//输出影响的行数
+    }
+
+    //修改操作
+    @Test
+    public void updateUser(){
+        User user = new User();
+        user.setId(2L);
+        user.setAge(30);
+        int rows = userMapper.updateById(user);
+        System.out.println(rows);
+    }
+
 }

@@ -11,6 +11,8 @@ import lombok.Data;
 @Data
 public class User {
 
+    //设置主键生成策略
+//    @TableId(type=IdType.AUTO)
     private Long id;
     private String name;
     private Integer age;
