@@ -1,5 +1,7 @@
 package com.atguigu.mpdemo01.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.util.Date;
@@ -22,10 +24,10 @@ public class User {
     private String email;
 
     //表中字段create_time，使用驼峰映射的规范
+    @TableField(fill=FieldFill.INSERT)
     private Date createTime;
     //表中字段update_time，使用驼峰映射的规范
+    @TableField(fill=FieldFill.INSERT_UPDATE)
     private Date updateTime;
-
-
 
 }

@@ -44,7 +44,7 @@ class Mpdemo01ApplicationTests {
     public void updateUser(){
         User user = new User();
         user.setId(2L);
-        user.setAge(30);
+        user.setAge(20);
 
         //手动设置时间值的方式
 //        user.setUpdateTime(new Date());
