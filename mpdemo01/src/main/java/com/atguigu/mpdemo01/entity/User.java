@@ -20,6 +20,7 @@ public class User {
     //设置主键生成策略
     //@TableId(type = IdType.ID_WORKER) //mp自带策略，生成19位值，数字类型使用这种策略，比如Long
     //@TableId(type = IdType.ID_WORKER_STR) //mp自带策略，生成19位值，字符串类型使用这种策略
+    //上面两种策略，mp底层是使用雪花算法来生成主键
     private Long id;
     private String name;
     private Integer age;
