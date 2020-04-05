@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @description
  * @create 2020年04月04日 15时05分29秒
  */
-@Repository//不加这个注解也能运行，因为底层这个玩意已经在spring ioc容器里面啦
+@Repository//不加这个注解也能运行，因为底层这个玩意已经在spring ioc容器里面啦，关键点是@MapperScan这个注解！！！
 //加这个只是为了spring boot测试类里面@Autowired注入UserMapper不报错
 public interface UserMapper extends BaseMapper<User> {
 }
