@@ -40,7 +40,7 @@ public class MybatisPlusConfig {
 
     /**
      * mybatis plusSQL执行性能分析插件
-     * 开发环境使用，线上不推荐使用。
+     * 开发环境使用，线上不推荐使用
      *
      *
      *
