@@ -59,7 +59,7 @@ class Mpdemo01ApplicationTests {
     }
 
     /**
-     * 测试mybatis plus乐观锁插件，乐观锁一般用于解决“丢失更新问题”
+     * 测试mybatis plus乐观锁插件，乐观锁一般用于解决“丢失更新”问题
      */
     @Test
     public void testOptimisticLocker() {
