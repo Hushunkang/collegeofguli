@@ -39,10 +39,10 @@ public class MybatisPlusConfig {
     }
 
     /**
-     * mybatis plusSQL执行性能分析插件
+     * mybatis plus sql执行性能分析插件
      * 开发环境使用，线上不推荐使用
      *
-     *
+     * mp内置sql执行性能分析插件：可输出sql语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询
      *
      * 三种环境
      * dev：开发环境
