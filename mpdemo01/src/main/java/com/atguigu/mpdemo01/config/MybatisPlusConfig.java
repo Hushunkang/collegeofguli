@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Profile;
  * @author hskBeginner Email：2752962035@qq.com
  * @version 1.0
  * @description
- * @create 2020年04月04日 17时44分34秒
+ * @create 2020年04月04日
  */
 @Configuration
 @MapperScan("com.atguigu.mpdemo01.mapper")

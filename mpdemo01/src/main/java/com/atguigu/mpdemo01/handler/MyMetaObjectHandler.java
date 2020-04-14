@@ -10,7 +10,7 @@ import java.util.Date;
  * @author hskBeginner Email：2752962035@qq.com
  * @version 1.0
  * @description
- * @create 2020年04月04日 16时30分55秒
+ * @create 2020年04月04日
  */
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {

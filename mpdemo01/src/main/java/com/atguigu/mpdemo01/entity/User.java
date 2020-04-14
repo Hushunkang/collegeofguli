@@ -12,7 +12,7 @@ import java.util.Date;
  * @author hskBeginner Email：2752962035@qq.com
  * @version 1.0
  * @description
- * @create 2020年04月04日 14时58分39秒
+ * @create 2020年04月04日
  */
 @Data
 public class User {
